@@ -1,0 +1,13 @@
+.custom-modal-dialog{
+    width: 400px;
+    height: 100%;
+    margin-top: 0px;
+    margin-right: 0px;
+    color: #484747;
+}
+.chosen-image{
+    width: 70px;
+    height: 70px;
+    margin-top: 20px;
+    margin-left: 20px;
+}

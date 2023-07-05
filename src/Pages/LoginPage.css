@@ -1,0 +1,19 @@
+.login{
+    background-image: url("https://tinyurl.com/2b4byg9m");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.login_overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2);
+}
+.login_card{
+    background-color: transparent;
+    border-color: rgb(178, 180, 181);
+    box-shadow: 0px 0px 10px orange;
+}
