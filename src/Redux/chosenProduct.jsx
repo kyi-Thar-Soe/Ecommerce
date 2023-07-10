@@ -1,29 +1,23 @@
 const initialState = {
-    chosenProduct: [],
-    removeChosenProduct: [],
-    restoreChosenProducts: [],
+    chosenProducts: [],
+    removeChosenProducts: [],
 };
 export const chosenProduct = (state = initialState,action) =>{
     switch(action.type) {
         case 'SET_CHOSENPRODUCTS':
             return {
                     ...state,
-                    chosenProducts: [...state?.chosenProduct, action?.payload],
+                    chosenProducts: [...state?.chosenProducts, action?.payload],
                     
                     };
-        case 'REMOVE_CHOSENPRODUCTS':
-            const updatedProducts = state.chosenProduct.filter(
-                (itemId) => itemId !== action.payload
+        case 'REMOVE_CHOSENPRODUCTS': {
+        const updatedProducts = state.chosenProducts.filter(
+                (itemId) => itemId.id !== action.payload.id
               );
               return {
-               removeChosenProducts: updatedProducts,
+               chosenProducts: updatedProducts,
               };
-        case 'RESTORE_CHOSENPRODUCTS':
-            return {
-                ...state,
-                restoreChosenProducts: [...state?.chosenProduct, action?.payload],
-                
-                };
+            }
         default:
             return state;
     }

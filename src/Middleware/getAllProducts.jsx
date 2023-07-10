@@ -6,7 +6,7 @@ export const getAllProducts = () => {
             type: 'SET_LOADING',
             payload: true,
         })
-        const response = await ApiCall('https://fakestoreapi.com/products','get');
+        const response = await ApiCall('https://fakestoreapi.com/products','get',null,true);
         console.log(response);
         dispatch ( {
         type: 'SET_ALLPRODUCTS',
@@ -16,10 +16,23 @@ export const getAllProducts = () => {
             type: 'SET_LOADING',
             payload: false,
         })
-       {/*dispatch ( {
+    }
+    
+}
+export const getFilterProducts = (name) => {
+    return async (dispatch) => {
+        dispatch({
+            type: 'SET_LOADING',
+            payload: true,
+        })
+       dispatch ( {
         type: 'FILTER_PRODUCTS',
-        payload: searchTerm,
-        })*/}
+        payload:name,
+        })
+        dispatch({
+            type: 'SET_LOADING',
+            payload: false,
+        })
         
     }
     

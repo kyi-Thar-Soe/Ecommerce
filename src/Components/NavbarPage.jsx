@@ -5,9 +5,10 @@ import {BsFillCloudSunFill,BsCloudMoonFill} from 'react-icons/bs';
 import { useContext, useEffect, useState} from 'react';
 import { ThemeContext } from '../Context/ThemeContext';
 import {  useDispatch, useSelector } from 'react-redux';
-import { getAllProducts } from '../Middleware/getAllProducts';
-import { useNavigate } from 'react-router';
+import { getAllProducts, getFilterProducts } from '../Middleware/getAllProducts';
 import ChosenListPage from './ChosenListPage';
+import { removeToken } from '../utils/token';
+import { useNavigate } from 'react-router';
 export default function NavbarPage() {
     const {theme,setTheme} = useContext(ThemeContext);
     const [searchValue,setSearchValue] = useState("");
@@ -24,12 +25,26 @@ export default function NavbarPage() {
   const toggle = () => {
     setModal(!modal)
   }
+  const handleKeyDown = (event) => {
+    if(event.key === 'Enter'){
+        dispatch(getFilterProducts(searchValue));
+        setSearchValue(event.target.value);
+        event.target.value = "";
+    }
+  }
+  const handleSearch = (event) => {
+    setSearchValue(event.target.value);
+  }
+  const handleLogout = () => {
+    removeToken();
+    navigate('/');
+  }
     return (
     <>
         <Navbar className='navbar navbar-expand-lg navbar-light navbar_bgcolor'>
             <div className="search-container ms-4 text-lg-start text-center">
-                <input type="text" placeholder="Search..." className="search-input form-control mb-3" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}/>
-                <button type="submit" className="search-button" ><i className="fa fa-search"
+                <input type="text" placeholder="Search..." className="search-input form-control mb-3" value={searchValue}  onChange={handleSearch} onKeyDown={handleKeyDown}/>
+                <button type="submit" className="search-button"><i className="fa fa-search"
                 ></i></button>
             </div>
 
@@ -56,7 +71,7 @@ export default function NavbarPage() {
                     </NavLink>
                 <DropdownMenu>
                     <DropdownItem className='user_profile'>User Profile</DropdownItem>
-                    <DropdownItem>Logout</DropdownItem>
+                    <DropdownItem onClick={handleLogout}>Logout</DropdownItem>
                 </DropdownMenu>
                 </NavItem>
 

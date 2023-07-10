@@ -1,19 +1,30 @@
 import './LoginPage.css';
 import { Row,Col,Card,Button, CardBody, FormGroup, Label,Form } from "reactstrap";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {useForm} from 'react-hook-form';
+import { ApiCall } from '../ApiService/ApiCall';
+import { setToken } from '../utils/token';
+import { useNavigate } from 'react-router';
 export default function LoginPage(){
     const[showPassword,setShowPassword] = useState(false);
     const [isLogin,setIsLogin] = useState(true);
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => {
-       console.log(data);
-       console.log(errors)
-    }
+    const onSubmit =async (data) => {
+        if (data){
+            const url = isLogin? "http://localhost:3000/login": "http://localhost:3000/users";
+          const tempData = await ApiCall(url, 'post', data)
+            console.log(tempData)
+            setToken(tempData?.accessToken);
+            navigate('/dashboard');
+          }
+         
+     }
+
    return (
     <Row className="login" style={{minHeight: "100vh"}}>
     <div className='login_overlay d-flex justify-content-center align-items-center'> 
@@ -32,7 +43,8 @@ export default function LoginPage(){
                         </FormGroup>
                         <FormGroup>
                         <Label>Password</Label>
-                            <input type={showPassword? "text" : "password"} placeholder="password"  className="form-control" {...register('password',{ required: true })}/>
+                            <input type={showPassword? "text" : "password"} placeholder="password"  className="form-control"
+                            {...register('password',{ required: true })}/>
                             {errors.password && (
                             <span className="text-danger">Password is required</span>
                             )}

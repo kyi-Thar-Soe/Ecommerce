@@ -1,12 +1,10 @@
 import {Card,CardImg,CardBody,CardTitle,CardFooter} from 'reactstrap';
 import './ListPage.css';
-import { useDispatch,useSelector} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
-import { getChosenProducts, removeChosenProducts, restoreChosenProducts } from '../Middleware/getChosenProducts';
-import { useState } from 'react';
-export default function ListPage({data,searchValue}) {
-{/*const filteredData = useSelector((state) => state.filteredData);
-console.log("Filtered product is:",filteredData);*/}
+import { getChosenProducts, removeChosenProducts } from '../Middleware/getChosenProducts';
+
+export default function ListPage({data}) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,16 +19,15 @@ const decrement = (id) => {
         type: 'DECREMENT',
     })
    dispatch(removeChosenProducts(id))
-   dispatch(restoreChosenProducts(id))
   }
 const gotoDetails = (id) => {
   navigate(`/details/${id}`);
   }
 
-const filteredProducts = searchValue ? data.filter(product => product.id === searchValue) : data;
-    return (
+  return (
+    <div>
         <div className=' d-flex flex-wrap justify-content-around mt-5 container'>
-          {filteredProducts?.map((item,index) => {
+          {data?.map((item,index) => {
             return (
           <Card style={{width: "18rem"}} key={index} className='mb-3 border-0'>
                 <div className='d-flex justify-content-center align-items-center gap-5 mt-2'>
@@ -63,5 +60,6 @@ const filteredProducts = searchValue ? data.filter(product => product.id === sea
           )
         })}
       </div>
+    </div>
     )
 }

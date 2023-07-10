@@ -1,6 +1,5 @@
 const initialState = {
-    allProduct : [],
-    filteredProducts: [],
+    data: [],
 }
 export const allProduct = (state = initialState,action) => {
     switch(action.type) {
@@ -8,17 +7,20 @@ export const allProduct = (state = initialState,action) => {
             return {
                 ...state,
                 data: action.payload,
-                filteredData: action.payload,
               };
+        case 'FILTER_PRODUCTS':{
+            const filtered = state.data.filter(product =>
+                  product.title.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                
+            return {
+                  ...state,
+                  data: filtered,
+                };
+              }
         default: 
             return state;
     }
-}
-{/*case 'FILTER_PRODUCTS':
-                const filtered = state.data.filter(product =>
-                  product.title.toLowerCase().includes(action.payload.toLowerCase())
-                );
-                return {
-                  ...state,
-                  filteredData: filtered,
-                };*/}
+
+  
+ }

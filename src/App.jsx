@@ -17,7 +17,7 @@ import LoginPage from "./Pages/LoginPage";
 function App() {
   return (
     <Provider store={store}>
-    <Container className="p-0 " fluid>
+    <Container className="p-0" fluid>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<LoginPage/>}/>
