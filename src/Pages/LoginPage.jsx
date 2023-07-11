@@ -16,7 +16,7 @@ export default function LoginPage(){
     } = useForm();
     const onSubmit =async (data) => {
         if (data){
-            const url = isLogin? "http://localhost:3000/login": "http://localhost:3000/users";
+            const url = isLogin? 'https://mystore-authentication.onrender.com/login' : 'https://mystore-authentication.onrender.com/users';
           const tempData = await ApiCall(url, 'post', data)
             console.log(tempData)
             setToken(tempData?.accessToken);
