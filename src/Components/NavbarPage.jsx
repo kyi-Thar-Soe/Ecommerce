@@ -7,12 +7,14 @@ import { ThemeContext } from '../Context/ThemeContext';
 import {  useDispatch, useSelector } from 'react-redux';
 import { getAllProducts, getFilterProducts } from '../Middleware/getAllProducts';
 import ChosenListPage from './ChosenListPage';
+import AboutPage from './AboutPage';
 import { removeToken } from '../utils/token';
 import { useNavigate } from 'react-router';
 export default function NavbarPage() {
     const {theme,setTheme} = useContext(ThemeContext);
     const [searchValue,setSearchValue] = useState("");
     const [modal,setModal] = useState(false);
+    const [aboutModal,setAboutModal] = useState(false);
     const {count} = useSelector((state) => state.countReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -24,6 +26,9 @@ export default function NavbarPage() {
     },[])
   const toggle = () => {
     setModal(!modal)
+  };
+  const toggleAbout = () => {
+    setAboutModal(!aboutModal)
   }
   const handleKeyDown = (event) => {
     if(event.key === 'Enter'){
@@ -31,14 +36,14 @@ export default function NavbarPage() {
         setSearchValue(event.target.value);
         event.target.value = "";
     }
-  }
+  };
   const handleSearch = (event) => {
     setSearchValue(event.target.value);
-  }
+  };
   const handleLogout = () => {
     removeToken();
     navigate('/');
-  }
+  };
     return (
     <>
         <Navbar className='navbar navbar-expand-lg navbar-light navbar_bgcolor'>
@@ -56,11 +61,13 @@ export default function NavbarPage() {
                     {count}
                     <span className="visually-hidden">unread messages</span>
                     </span>
-                    </button>
+            </button>
             <div className='d-flex justify-content-end'>
             <ChosenListPage modal={modal} toggle={toggle} count={count}/>
             </div>
-            
+            <div>
+            <AboutPage aboutModal={aboutModal} toggleAbout={toggleAbout}/>
+            </div>
             </div>
 
             <div className='d-none d-lg-flex justify-content-center align-items-center'>
@@ -70,7 +77,6 @@ export default function NavbarPage() {
                     <i className='fas fa-user-circle'></i>
                     </NavLink>
                 <DropdownMenu>
-                    <DropdownItem className='user_profile'>User Profile</DropdownItem>
                     <DropdownItem onClick={handleLogout}>Logout</DropdownItem>
                 </DropdownMenu>
                 </NavItem>
@@ -80,7 +86,7 @@ export default function NavbarPage() {
                     <i className='fas fa-cog'></i>
                     </NavLink>
                 <DropdownMenu>
-                    <DropdownItem>About</DropdownItem>
+                    <DropdownItem onClick={toggleAbout}>About</DropdownItem>
                 </DropdownMenu>
                 </NavItem>
 
@@ -89,7 +95,7 @@ export default function NavbarPage() {
             onClick={() =>handleTheme('dark')}/> : <BsFillCloudSunFill className='me-4 fs-5 mb-2 text-dark-50' onClick={() =>handleTheme('light')}/>}
             
             </div>
-           
+            
            
         </Navbar>
     </>

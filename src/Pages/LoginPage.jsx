@@ -1,6 +1,6 @@
 import './LoginPage.css';
 import { Row,Col,Card,Button, CardBody, FormGroup, Label,Form } from "reactstrap";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {useForm} from 'react-hook-form';
 import { ApiCall } from '../ApiService/ApiCall';
 import { setToken } from '../utils/token';
@@ -14,11 +14,10 @@ export default function LoginPage(){
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit =async (data) => {
+    const onsubmit =async (data) => {
         if (data){
             const url = isLogin? 'https://mystore-authentication.onrender.com/login' : 'https://mystore-authentication.onrender.com/users';
-          const tempData = await ApiCall(url, 'post', data)
-            console.log(tempData)
+            const tempData = await ApiCall(url, 'post', data)
             setToken(tempData?.accessToken);
             navigate('/dashboard');
           }
@@ -32,7 +31,7 @@ export default function LoginPage(){
             <Card className='login_card'>
                 <CardBody className="p-5">
                 <h3 className='mb-4'>{isLogin? "Login" : "Sign Up"}</h3>
-                    <Form onSubmit={handleSubmit(onSubmit)}>
+                    <Form onSubmit={handleSubmit(onsubmit)}>
                         <FormGroup>
                             <Label>Email</Label>
                             <input type="email" placeholder="email" className="form-control"

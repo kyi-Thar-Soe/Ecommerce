@@ -6,6 +6,7 @@ import "./DetailPage.css";
 import { AiOutlineHeart,AiFillHeart } from 'react-icons/ai';
 import { ThemeContext } from '../Context/ThemeContext';
 export default function DetailPage() {
+    const {theme} = useContext(ThemeContext);
     const {id} = useParams();
     const [data,setData] = useState([]);
     const detailData = async () => {
@@ -35,7 +36,6 @@ export default function DetailPage() {
     const handleFavouriteClick = () => {
         setIsFavorite(!isFavorite);
       };
-    const {theme} = useContext(ThemeContext);
     return (
     <div style={{height: "100vh"}}>
     <Card className='container w-75 mt-3 ms-5  bg-transparent border-0'>

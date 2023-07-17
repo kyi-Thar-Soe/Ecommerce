@@ -11,11 +11,11 @@ export const chosenProduct = (state = initialState,action) =>{
                     
                     };
         case 'REMOVE_CHOSENPRODUCTS': {
-        const updatedProducts = state.chosenProducts.filter(
+        const updatedProducts = state?.chosenProducts.filter(
                 (itemId) => itemId.id !== action.payload.id
               );
               return {
-               chosenProducts: updatedProducts,
+                chosenProducts : updatedProducts,
               };
             }
         default:

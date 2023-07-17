@@ -19,7 +19,7 @@ export default function SidebarPage() {
             <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen = {isOpen} navbar> 
                 <Nav className=" d-flex flex-column gap-3 " navbar>
-                    <NavbarBrand href="/" className="d-flex justify-content-center align-items-center">
+                    <NavbarBrand className="d-flex justify-content-center align-items-center">
                         <img src={brandlogo} alt="brandlogo"/>
                         <p className='d-none d-lg-inline fs-4 fw-bold ms-3 mt-2'>My <span style={{color: "orange"}}>Store</span></p>
                     </NavbarBrand>

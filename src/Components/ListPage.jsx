@@ -2,7 +2,7 @@ import {Card,CardImg,CardBody,CardTitle,CardFooter} from 'reactstrap';
 import './ListPage.css';
 import { useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
-import { getChosenProducts, removeChosenProducts } from '../Middleware/getChosenProducts';
+import { getChosenProducts } from '../Middleware/getChosenProducts';
 
 export default function ListPage({data}) {
   const dispatch = useDispatch();
@@ -13,12 +13,6 @@ export default function ListPage({data}) {
         type: 'INCREMENT',
     })
     dispatch(getChosenProducts(id))
-  }
-const decrement = (id) => {
-    dispatch({
-        type: 'DECREMENT',
-    })
-   dispatch(removeChosenProducts(id))
   }
 const gotoDetails = (id) => {
   navigate(`/details/${id}`);
@@ -49,9 +43,6 @@ const gotoDetails = (id) => {
                 <CardFooter>
                     <button className="btn btn-outline-secondary me-3 buy_Button text-dark" onClick={() =>increment(item?.id)}>
                       Buy
-                    </button>
-                    <button className="btn btn-outline-secondary cancel_Button text-dark" onClick={() =>decrement(item?.id)}>
-                      Cancel
                     </button>
                 </CardFooter>
               </CardBody>
