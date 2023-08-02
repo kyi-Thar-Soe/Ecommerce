@@ -7,6 +7,7 @@ import { menProduct } from "./menProduct";
 import { womenProduct } from "./womenProduct";
 import { chosenProduct } from "./chosenProduct";
 import { loading } from "./loading";
+
 export const reducer = combineReducers({
     countReducer,
     allProduct,

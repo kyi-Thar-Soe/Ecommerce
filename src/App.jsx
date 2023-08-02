@@ -2,8 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import './App.css';
-import { Provider } from "react-redux";
-import { store } from "./Redux/Store";
 import { Container } from "reactstrap";
 import AdminLayout from "./Layout/AdminLayout";
 import DashboardPage from "./Pages/DashboardPage";
@@ -16,7 +14,7 @@ import LoginPage from "./Pages/LoginPage";
 
 function App() {
   return (
-    <Provider store={store}>
+    
     <Container className="p-0" fluid>
     <BrowserRouter>
     <Routes>
@@ -32,7 +30,7 @@ function App() {
     </Routes>
     </BrowserRouter>
     </Container>
-    </Provider>
+   
   )
 }
 

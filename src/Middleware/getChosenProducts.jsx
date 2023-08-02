@@ -19,3 +19,11 @@ export const removeChosenProducts = (id) => {
     }
 }  
 
+export const increaseQuantityProducts = (id) => {
+    return async (dispatch) => {
+        dispatch ( {
+        type: 'INCREASE_QUANTITY',
+        payload: id,
+        })
+    }
+}

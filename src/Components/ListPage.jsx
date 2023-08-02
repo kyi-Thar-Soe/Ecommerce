@@ -10,9 +10,9 @@ export default function ListPage({data}) {
 
   const  increment = (id) => {
     dispatch({
-        type: 'INCREMENT',
-    })
-    dispatch(getChosenProducts(id))
+      type: 'INCREMENT',
+  })
+   dispatch(getChosenProducts(id))
   }
 const gotoDetails = (id) => {
   navigate(`/details/${id}`);
@@ -41,7 +41,7 @@ const gotoDetails = (id) => {
                 </CardTitle>
                 </div>
                 <CardFooter>
-                    <button className="btn btn-outline-secondary me-3 buy_Button text-dark" onClick={() =>increment(item?.id)}>
+                    <button className="btn btn-outline-secondary me-3 buy_Button text-dark"  onClick={() =>increment(item?.id)}>
                       Buy
                     </button>
                 </CardFooter>

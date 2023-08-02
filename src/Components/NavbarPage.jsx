@@ -16,34 +16,36 @@ export default function NavbarPage() {
     const [modal,setModal] = useState(false);
     const [aboutModal,setAboutModal] = useState(false);
     const {count} = useSelector((state) => state.countReducer);
+    const {chosenProducts} = useSelector((state) => state.chosenProduct);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const handleTheme = ( theme) => {
         setTheme(theme)
-    }
+    };
     useEffect( () => {
         dispatch(getAllProducts())
-    },[])
-  const toggle = () => {
-    setModal(!modal)
-  };
-  const toggleAbout = () => {
-    setAboutModal(!aboutModal)
-  }
-  const handleKeyDown = (event) => {
-    if(event.key === 'Enter'){
+    },[]);
+    const toggle = () => {
+      setModal(!modal)
+    };
+    const toggleAbout = () => {
+      setAboutModal(!aboutModal)
+    };
+    const handleKeyDown = (event) => {
+      if(event.key === 'Enter'){
         dispatch(getFilterProducts(searchValue));
         setSearchValue(event.target.value);
         event.target.value = "";
-    }
-  };
-  const handleSearch = (event) => {
-    setSearchValue(event.target.value);
-  };
-  const handleLogout = () => {
-    removeToken();
-    navigate('/');
-  };
+      }
+    };
+    const handleSearch = (event) => {
+      setSearchValue(event.target.value);
+    };
+    const handleLogout = () => {
+      removeToken();
+      navigate('/');
+    };
     return (
     <>
         <Navbar className='navbar navbar-expand-lg navbar-light navbar_bgcolor'>
@@ -58,12 +60,12 @@ export default function NavbarPage() {
             <button type="button" className="position-relative btn border-0">
                     <img src={cart} alt="img" className='cartimg' onClick={toggle}/>
                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    {count}
+                    {chosenProducts?.length}
                     <span className="visually-hidden">unread messages</span>
                     </span>
             </button>
             <div className='d-flex justify-content-end'>
-            <ChosenListPage modal={modal} toggle={toggle} count={count}/>
+            <ChosenListPage modal={modal} toggle={toggle} />
             </div>
             <div>
             <AboutPage aboutModal={aboutModal} toggleAbout={toggleAbout}/>
