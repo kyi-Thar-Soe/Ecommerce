@@ -2,7 +2,7 @@ import {Card,CardImg,CardBody,CardTitle,CardFooter} from 'reactstrap';
 import './ListPage.css';
 import { useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
-import { getChosenProducts } from '../Middleware/getChosenProducts';
+import { getChosenProducts } from '../../Middleware/getChosenProducts';
 
 export default function ListPage({data}) {
   const dispatch = useDispatch();
@@ -13,17 +13,17 @@ export default function ListPage({data}) {
       type: 'INCREMENT',
   })
    dispatch(getChosenProducts(id))
-  }
-const gotoDetails = (id) => {
+  };
+  const gotoDetails = (id) => {
   navigate(`/details/${id}`);
-  }
+  };
 
   return (
     <div>
         <div className=' d-flex flex-wrap justify-content-around mt-5 container'>
           {data?.map((item,index) => {
             return (
-          <Card style={{width: "18rem"}} key={index} className='mb-3 border-0'>
+          <Card style={{width: "18rem"}} key={index} className='mb-3 border-0 items'>
                 <div className='d-flex justify-content-center align-items-center gap-5 mt-2'>
                 <CardImg
                   alt="Card image cap"

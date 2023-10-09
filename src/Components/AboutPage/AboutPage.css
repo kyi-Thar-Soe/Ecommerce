@@ -1,0 +1,12 @@
+@media screen and (max-width: 768px){
+    .about-div{
+        width: 300px;
+        margin: auto;
+    }
+    .about-body,.about-footer{
+        font-size: 14px;
+    }
+    .ribbon img{
+        width: 100px !important;
+    }
+}

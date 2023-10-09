@@ -1,5 +1,5 @@
 import { useEffect, useRef} from "react";
-import ListPage from "../Components/ListPage";
+import ListPage from "../Components/ListPage/ListPage";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../Middleware/getAllProducts";
 

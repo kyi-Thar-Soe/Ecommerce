@@ -1,16 +1,14 @@
 import './SidebarPage.css';
-import { categoryRoutes } from '../Pages/RoutePage';
+import { categoryRoutes } from '../../Pages/RoutePage';
 import { Navbar,NavbarToggler,Collapse,Nav,NavbarBrand,NavItem,NavLink } from 'reactstrap';
-import brandlogo from '../assets/img/brandlogo.png';
+import brandlogo from '../../assets/img/brandlogo.png';
 import { useContext, useState } from 'react';
-import { ThemeContext } from '../Context/ThemeContext';
+import { ThemeContext } from '../../Context/ThemeContext';
 
 export default function SidebarPage() {
     const [isOpen,setIsOpen] = useState(false);
     const {theme} = useContext(ThemeContext);
     const toggle = () => setIsOpen(!isOpen);
-
-    
     
     return (
      <>
@@ -27,26 +25,26 @@ export default function SidebarPage() {
                         <NavLink className='text-center text-lg-start border-0 bg-transparent text-dark ' tag="a" href='/dashboard'> 
                         <div style={{color: theme === 'light' ? 'black' : 'white'}}>
                         <i className='fa-solid fa-house'></i>
-                        <span className='d-none d-lg-inline'>Dashboard</span>
+                        <span className='d-lg-inline'>Dashboard</span>
                         </div>
                         </NavLink>
                     </NavItem>
 
                     <NavItem className='text-center text-lg-start  border-0'>
-                        <NavLink  className='disabled text-lg-start text-center d-none d-lg-block border-0 bg-transparent mb-2 fw-bold'>
+                        <NavLink  className='disabled text-lg-start text-center d-lg-block border-0 bg-transparent mb-2 fw-bold'>
                         <span style={{color: "orange"}}>CATEGORIES</span>
                         </NavLink>
                    {categoryRoutes?.map((item,index) => {
                     return (
-                            <div className='mb-4' key={index}>
-                            <NavLink href={item?.path} className='text-dark menuItem'>
+                        <div className='mb-4' key={index}>
+                        <NavLink href={item?.path} 
+                            className='text-dark menuItem'>
                                 <div style={{color: theme === 'light' ? 'black' : 'white'}}>
                                 <i className={`text-center text-lg-start ${item?.icon}`}></i>
-                                <span className='d-none d-lg-inline'>{item?.name}</span>
+                                <span className='d-lg-inline'>{item?.name}</span>
                                 </div>
-                            </NavLink>   
-                            </div>
-                             
+                        </NavLink>   
+                        </div>
                     )
                    })}
                    </NavItem>

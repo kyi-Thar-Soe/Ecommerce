@@ -1,0 +1,57 @@
+.custom-modal-dialog{
+    width: 400px;
+    height: 100%;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+.custom-modal-dialog span{
+    color: #484747;
+    font-weight: 700;
+}
+.chosen-image{
+    width: 70px;
+    height: 70px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.cancel-button{
+    font-weight: 900;
+    color: red;
+    font-size: 20px;
+}
+.cancel-button:hover{
+    border: 1px solid red;
+    border-radius: 5px;
+    
+}
+.quantity{
+    border: 1px solid gray;
+    padding: 4px 3px 4px 3px;
+    border-radius: 10px;
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 10px;
+}
+.total-price{
+   color: #484747;
+   font-weight: 700;
+}
+.checkout{
+    background-color: #ffc107;
+    border: none;
+    padding: 5px 28px;
+    color: #ffffff;
+    font-weight: 700;
+    margin: -5px 0px 20px 250px;
+}
+.checkout:hover{
+    background-color: transparent;
+    border: 1px solid #101010;
+    color: #484747;
+}
+@media screen and (max-width: 768px){
+  
+}

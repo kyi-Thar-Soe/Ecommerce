@@ -1,0 +1,20 @@
+.text,.rate{
+    color:  #484747;
+    font-weight: 700;
+}
+.heart{
+    color: orange;
+    
+}
+@media screen  and (max-width: 768px){
+    .detail-body{
+        width: 25rem;
+        margin-left: -2rem;
+    }
+    .card-title h4{
+        margin-top: -4rem;
+    }
+    .detail-button{
+        margin-right: 10px;
+    }
+}

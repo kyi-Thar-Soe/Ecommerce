@@ -27,3 +27,12 @@ export const increaseQuantityProducts = (id) => {
         })
     }
 }
+
+export const decreaseQuantityProducts = (id) => {
+    return async (dispatch) => {
+        dispatch ( {
+        type: 'DECREASE_QUANTITY',
+        payload: id,
+        })
+    }
+}

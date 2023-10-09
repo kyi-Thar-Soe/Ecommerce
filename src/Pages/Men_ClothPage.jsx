@@ -1,5 +1,5 @@
 import { useEffect} from "react";
-import ListPage from "../Components/ListPage";
+import ListPage from "../Components/ListPage/ListPage";
 import { useDispatch, useSelector } from "react-redux";
 import { getMenProducts } from "../Middleware/getMenProducts";
 export default function Men_ClothPage() {

@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from 'react-router';
 import {Row,Col} from 'reactstrap';
-import SidebarPage from '../Components/SidebarPage';
-import NavbarPage from '../Components/NavbarPage';
+import SidebarPage from '../Components/SidebarPage/SidebarPage';
+import NavbarPage from '../Components/NavBarPage/NavbarPage';
 import { ThemeContext } from '../Context/ThemeContext';
 import { useEffect, useState } from 'react';
 import { getToken } from '../utils/token';
@@ -19,7 +19,7 @@ export default function AdminLayout() {
     },[])
     return (
         <ThemeContext.Provider value={{theme,setTheme}}>
-        <Row style={{backgroundColor: theme === "light" ? "whitesmoke" : " #515a5a"}} >
+        <Row style={{backgroundColor: theme === "light" ? "whitesmoke" : " #515a5a"}}>
             <Col md={2} className="p-0">
                <SidebarPage/>
             </Col>

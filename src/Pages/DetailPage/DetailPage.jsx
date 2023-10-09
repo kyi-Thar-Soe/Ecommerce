@@ -1,10 +1,10 @@
 import {useParams} from 'react-router-dom';
 import { useState,useEffect, useContext } from 'react';
-import { ApiCall } from '../ApiService/ApiCall';
+import { ApiCall } from '../../ApiService/ApiCall';
 import {Card,CardBody,CardTitle,CardImg,CardText,Row,Col} from 'reactstrap';
 import "./DetailPage.css";
 import { AiOutlineHeart,AiFillHeart } from 'react-icons/ai';
-import { ThemeContext } from '../Context/ThemeContext';
+import { ThemeContext } from '../../Context/ThemeContext';
 export default function DetailPage() {
     const {theme} = useContext(ThemeContext);
     const {id} = useParams();
@@ -12,8 +12,6 @@ export default function DetailPage() {
     const detailData = async () => {
         const tempData = await ApiCall(`https://fakestoreapi.com/products/${id}`,'get');
         setData(tempData);
-        console.log("detailTempData:",tempData)
-        
     };
     useEffect( () => {
         detailData();
@@ -37,8 +35,8 @@ export default function DetailPage() {
         setIsFavorite(!isFavorite);
       };
     return (
-    <div style={{height: "100vh"}}>
-    <Card className='container w-75 mt-3 ms-5  bg-transparent border-0'>
+    <div style={{height: "100%"}}>
+    <Card className='container w-75 h-100 mt-3 ms-5  bg-transparent border-0'>
     <Row>
         <Col md={5} className='d-flex flex-column align-items-center mt-5 mb-5'>
             <CardImg src={data?.image} alt='img' style={{width: "200px",height: "200px"}}></CardImg>
@@ -47,14 +45,14 @@ export default function DetailPage() {
             </div>
          </Col>
         <Col md={7}>
-            <CardBody className='mt-4'>
-                <CardTitle>
+            <CardBody className='mt-4 detail-body'>
+                <CardTitle className='card-title'>
                     <h4 style={{color: theme === 'light' ? "#484747" : "white"}}>{data?.title}</h4>
                 </CardTitle>
-                <div className='d-block d-lg-flex  mt-3 mb-2 gap-3'>
-                    <button className='btn btn-warning border-0 mb-2' onClick={descriptionInfo}>Description</button>
-                    <button className='btn btn-warning border-0 mb-2' onClick={categoryInfo}>Category</button>
-                    <button className='btn btn-warning border-0 mb-2' onClick={reviewInfo}>Reviews</button>
+                <div className=' d-lg-flex  mt-3 mb-2 gap-3'>
+                    <button className='btn btn-warning border-0 mb-2 detail-button' onClick={descriptionInfo}>Description</button>
+                    <button className='btn btn-warning border-0 mb-2 detail-button' onClick={categoryInfo}>Category</button>
+                    <button className='btn btn-warning border-0 mb-2 detail-button' onClick={reviewInfo}>Reviews</button>
                     <button className='fs-5 btn border-0 mb-2' onClick={handleFavouriteClick}>{isFavorite ? <AiFillHeart className='heart'/>  : <AiOutlineHeart/> }</button>
                 </div>
                 <CardText>

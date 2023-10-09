@@ -1,0 +1,10 @@
+.items:hover{
+    cursor: pointer;
+    transform: translateY(-1%) ;
+    transition: 0.5s transform ease-out;
+    box-shadow: 0px 0px 0.75em rgba(215, 214, 214, 0.7);
+    
+}
+.buy_Button:hover{
+    background-color: green;
+}

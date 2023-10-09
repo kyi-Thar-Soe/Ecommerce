@@ -22,5 +22,21 @@ img{
     cursor: pointer;
     background-color: orange;
 }
+.menuItem.active span{
+    color: orange; /* Add the background color for the active link */
+}
+@media screen and (max-width: 768px){
+    .menuItem{
+        display: flex;
+        align-items: center;
+    }
+    .menuItem:hover {
+        cursor: pointer;
+        background-color: orange;
+    }
+    .menuItem i{
+        margin-left: 150px;
+    }
+}
    
 

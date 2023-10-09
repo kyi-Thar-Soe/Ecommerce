@@ -9,13 +9,14 @@ import ElectronicPage from "./Pages/ElectronicPage";
 import JeweleryPage from "./Pages/JeweleryPage";
 import Men_ClothPage from "./Pages/Men_ClothPage"; 
 import Women_ClothPage from "./Pages/Women_ClothPage";
-import DetailPage from "./Pages/DetailPage";
-import LoginPage from "./Pages/LoginPage";
+import DetailPage from "./Pages/DetailPage/DetailPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import CheckoutPage from "./Pages/CheckoutPage/CheckoutPage";
 
 function App() {
   return (
     
-    <Container className="p-0" fluid>
+    <Container className="p-0 h-100" fluid>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<LoginPage/>}/>
@@ -27,6 +28,7 @@ function App() {
       <Route path="womencloth" element={<Women_ClothPage/>}/>
       <Route path="details/:id" element={<DetailPage/>}/>
       </Route>
+      <Route path="checkout" element={<CheckoutPage/>}/>
     </Routes>
     </BrowserRouter>
     </Container>

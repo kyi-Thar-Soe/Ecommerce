@@ -2,8 +2,8 @@ import './LoginPage.css';
 import { Row,Col,Card,Button, CardBody, FormGroup, Label,Form } from "reactstrap";
 import { useState } from "react";
 import {useForm} from 'react-hook-form';
-import { ApiCall } from '../ApiService/ApiCall';
-import { setToken } from '../utils/token';
+import { ApiCall } from '../../ApiService/ApiCall';
+import { setToken } from '../../utils/token';
 import { useNavigate } from 'react-router';
 export default function LoginPage(){
     const[showPassword,setShowPassword] = useState(false);
@@ -15,12 +15,10 @@ export default function LoginPage(){
         formState: { errors },
     } = useForm();
     const onsubmit =async (data) => {
-        if (data){
-            const url = isLogin? 'https://mystore-authentication.onrender.com/login' : 'https://mystore-authentication.onrender.com/users';
+        const url = isLogin? 'https://mystore-authentication.onrender.com/login' : 'https://mystore-authentication.onrender.com/users';
             const tempData = await ApiCall(url, 'post', data)
             setToken(tempData?.accessToken);
             navigate('/dashboard');
-          }
          
      }
 
