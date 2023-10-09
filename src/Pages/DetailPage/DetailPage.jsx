@@ -36,7 +36,7 @@ export default function DetailPage() {
       };
     return (
     <div style={{height: "100%"}}>
-    <Card className='container w-75 h-100 mt-3 ms-5  bg-transparent border-0'>
+    <Card className='container w-75 mt-3 ms-5  bg-transparent border-0'>
     <Row>
         <Col md={5} className='d-flex flex-column align-items-center mt-5 mb-5'>
             <CardImg src={data?.image} alt='img' style={{width: "200px",height: "200px"}}></CardImg>
