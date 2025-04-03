@@ -18,6 +18,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<AdminLayout />}>
+            {/* This makes DashboardPage the default page when "/" is accessed */}
+            <Route index element={<DashboardPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="electronics" element={<ElectronicPage />} />
             <Route path="jewelery" element={<JeweleryPage />} />
