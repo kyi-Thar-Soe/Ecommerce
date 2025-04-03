@@ -21,7 +21,7 @@ function App() {
             {/* This makes DashboardPage the default page when "/" is accessed */}
             <Route index element={<DashboardPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
-            <Route path="/electronics" element={<ElectronicPage />} />
+            <Route path="electronics" element={<ElectronicPage />} />
             <Route path="jewelery" element={<JeweleryPage />} />
             <Route path="mencloth" element={<Men_ClothPage />} />
             <Route path="womencloth" element={<Women_ClothPage />} />
