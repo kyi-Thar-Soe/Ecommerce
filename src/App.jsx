@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Container } from "reactstrap";
 import AdminLayout from "./Layout/AdminLayout";
@@ -15,7 +15,7 @@ import CheckoutPage from "./Pages/CheckoutPage/CheckoutPage";
 function App() {
   return (
     <Container className="p-0 h-100" fluid>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<AdminLayout />}>
             <Route path="dashboard" element={<DashboardPage />} />
@@ -27,7 +27,7 @@ function App() {
           </Route>
           <Route path="checkout" element={<CheckoutPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Container>
   );
 }
