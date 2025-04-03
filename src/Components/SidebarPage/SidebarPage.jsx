@@ -35,30 +35,33 @@ export default function SidebarPage() {
               {/* Dashboard Link */}
               <NavItem className="menuItem">
                 <NavLink
-                  className="text-center text-lg-start border-0 bg-transparent text-dark"
+                  className="menulink text-center text-lg-start border-0 bg-transparent text-dark"
                   to="/dashboard" // ✅ Use `to` instead of `href`
                   onClick={() => setIsOpen(false)} // ✅ Close navbar on click
                 >
-                  <div style={{ color: theme === "light" ? "black" : "white" }}>
+                  <div
+                    className="all-pro"
+                    style={{ color: theme === "light" ? "black" : "white" }}
+                  >
                     <i className="fa-solid fa-house"></i>
-                    <span className="d-lg-inline">Dashboard</span>
+                    <span className="d-lg-inline">All products</span>
                   </div>
                 </NavLink>
               </NavItem>
 
               {/* Category Links */}
-              <NavItem className="text-center text-lg-start border-0">
+              <NavItem className="text-lg-start border-0">
                 <span
-                  className="disabled text-lg-start text-center d-lg-block border-0 bg-transparent mb-2 fw-bold"
+                  className="disabled text-lg-start d-lg-block border-0 bg-transparent mb-2 fw-bold"
                   style={{ color: "orange" }}
                 >
                   CATEGORIES
                 </span>
                 {categoryRoutes?.map((item, index) => (
-                  <div className="mb-4" key={index}>
+                  <div className="cate-menu" key={index}>
                     <NavLink
                       to={item?.path} // ✅ Corrected routing
-                      className="text-dark menuItem"
+                      className="menulink text-dark menuItem"
                       onClick={() => setIsOpen(false)} // ✅ Close navbar on click
                     >
                       <div

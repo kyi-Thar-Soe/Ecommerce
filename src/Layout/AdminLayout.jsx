@@ -29,7 +29,11 @@ export default function AdminLayout() {
           backgroundColor: theme === "light" ? "whitesmoke" : " #515a5a",
         }}
       >
-        <Col md={2} className="p-0">
+        <Col
+          md={2}
+          className="p-0"
+          style={{ borderRight: "1px solid #C7C7C7" }}
+        >
           <SidebarPage />
         </Col>
         <Col md={10} className="p-0">
