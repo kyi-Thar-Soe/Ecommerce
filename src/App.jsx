@@ -15,23 +15,17 @@ import CheckoutPage from "./Pages/CheckoutPage/CheckoutPage";
 function App() {
   return (
     <Container className="p-0 h-100" fluid>
-      <BrowserRouter basename="/">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<AdminLayout />}>
             <Route index element={<DashboardPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
-
             <Route path="electronics" element={<ElectronicPage />} />
-
             <Route path="jewelery" element={<JeweleryPage />} />
-
             <Route path="mencloth" element={<Men_ClothPage />} />
-
             <Route path="womencloth" element={<Women_ClothPage />} />
-
             <Route path="details/:id" element={<DetailPage />} />
           </Route>
-
           <Route path="checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
