@@ -17,7 +17,7 @@ function App() {
     <Container className="p-0 h-100" fluid>
       <BrowserRouter>
         <Routes>
-          <Route element={<AdminLayout />}>
+          <Route path="/" element={<AdminLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="electronics" element={<ElectronicPage />} />
             <Route path="jewelery" element={<JeweleryPage />} />
