@@ -15,7 +15,7 @@ import CheckoutPage from "./Pages/CheckoutPage/CheckoutPage";
 function App() {
   return (
     <Container className="p-0 h-100" fluid>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<AdminLayout />}>
             <Route index element={<DashboardPage />} />
